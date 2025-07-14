@@ -1,0 +1,23 @@
+from pydantic import BaseModel
+from typing import List, Union, Optional
+from uuid import UUID
+
+#custom imports
+from quiz.quizQuestions import QuizQuestion
+
+""" 
+  id uuid not null default gen_random_uuid (),
+  class_id uuid null,
+  title text not null,
+  description text null,
+  questions jsonb not null,
+  created_at timestamp with time zone null default now(),
+  constraint mathquizes_pkey primary key (id),
+  constraint mathquizes_class_id_fkey foreign KEY (class_id) references classes (id)
+"""
+
+class Quiz(BaseModel):
+    class_id: UUID
+    description : str
+    title: str
+    questions: List[QuizQuestion]

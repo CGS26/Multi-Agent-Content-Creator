@@ -3,7 +3,7 @@ from typing import List, Union, Optional
 from uuid import UUID
 
 #custom imports
-from quiz.quizQuestions import QuizQuestion
+from models.content.questions.quizQuestions import QuizQuestions
 
 """ 
   id uuid not null default gen_random_uuid (),
@@ -20,4 +20,4 @@ class Quiz(BaseModel):
     class_id: UUID
     description : str
     title: str
-    questions: List[QuizQuestion]
+    questions: List[QuizQuestions]

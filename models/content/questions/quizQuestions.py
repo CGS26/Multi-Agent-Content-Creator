@@ -12,7 +12,7 @@ class Option(BaseModel):
     id:str
     text: str
     
-class QuizQuestion(BaseModel):
+class QuizQuestions(BaseModel):
     id: str
     hint: Optional[str]
     type: QuestionType 

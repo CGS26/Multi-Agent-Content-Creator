@@ -1,3 +1,4 @@
+#Gemini:
 # content_creation_template = """
 # You are an expert AI tutor tasked with transforming raw educational data into structured, learner-friendly content.
 
@@ -28,7 +29,7 @@
 
 
 
-
+#Deepseek:
 content_creation_template = """
 You are an expert AI tutor tasked with transforming raw educational data into structured, learner-friendly content.Do not include any reasoning, commentary, <think> sections, or markdown formatting. Only respond with a valid JSON object.
 

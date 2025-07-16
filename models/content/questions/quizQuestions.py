@@ -18,7 +18,6 @@ class QuizQuestions(BaseModel):
     type: QuestionType 
     options: Optional[List[Option]] = None
     question:str
-    explanation: Optional[List[str]]
+    explanation: Optional[str]
     correctAnswer : Union[str,List[str]]
-    created_at: Optional[datetime] 
-
+    # created_at: Optional[datetime] 

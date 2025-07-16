@@ -17,7 +17,7 @@ from models.content.questions.quizQuestions import QuizQuestions
 """
 
 class Quiz(BaseModel):
-    class_id: UUID
-    description : str
+    # class_id: UUID
     title: str
+    description : str
     questions: List[QuizQuestions]

@@ -24,11 +24,6 @@ class MathQuizGenerator:
         self.system_prompt = SystemMessagePromptTemplate.from_template(
             PROMPT_PATH.read_text()
         )
-        self.new_parser = OutputFixingParser.from_llm(parser=self.parser, llm=self.llm)
-        print(self.system_prompt)
-        logger.info(
-            f"Maths Quiz Generator Initialized with Model: {model_name} and Temperature: {temperature} "
-        )
 
     def generate(self, quizType: str, chunk: Document):
         logger.info(f"Generating Quiz for {quizType} for chunk: {chunk}")

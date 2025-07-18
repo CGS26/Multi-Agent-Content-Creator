@@ -2,8 +2,8 @@ from pydantic import BaseModel
 from typing import List, Union, Optional
 from uuid import UUID
 
-#custom imports
-from models.content.questions.quizQuestions import QuizQuestions
+# custom imports
+from models.content.questions.quizQuestions import QuizQuestions, MixedQUestions
 
 """ 
   id uuid not null default gen_random_uuid (),
@@ -16,8 +16,15 @@ from models.content.questions.quizQuestions import QuizQuestions
   constraint mathquizes_class_id_fkey foreign KEY (class_id) references classes (id)
 """
 
+
 class Quiz(BaseModel):
     # class_id: UUID
     title: str
-    description : str
+    description: str
     questions: List[QuizQuestions]
+
+
+class MixedQuiz(BaseModel):
+    title: str
+    description: str
+    questions: List[MixedQUestions]

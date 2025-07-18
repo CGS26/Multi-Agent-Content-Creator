@@ -21,3 +21,9 @@ class QuizQuestions(BaseModel):
     explanation: Optional[str]
     correctAnswer : Union[str,List[str]]
     # created_at: Optional[datetime] 
+
+class MixedQUestions(BaseModel):
+    id: str
+    type: QuestionType
+    question: str
+    correctAnswer:  Union[str,List[str]]

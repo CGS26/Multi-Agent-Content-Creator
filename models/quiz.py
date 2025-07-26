@@ -3,7 +3,11 @@ from typing import List, Union, Optional
 from uuid import UUID
 
 # custom imports
-from models.content.questions.quizQuestions import QuizQuestions, MixedQUestions
+from models.content.questions.quizQuestions import (
+    QuizQuestions,
+    MixedQUestions,
+    DailyQuestions,
+)
 
 """ 
   id uuid not null default gen_random_uuid (),
@@ -28,6 +32,15 @@ class MixedQuiz(BaseModel):
     title: str
     description: str
     questions: List[MixedQUestions]
+
+    class Config:
+        extra = "ignore"  # Ignore extra fields that LLM might generate
+
+
+class DailyQuiz(BaseModel):
+    title: str
+    description: str
+    questions: List[DailyQuestions]
 
     class Config:
         extra = "ignore"  # Ignore extra fields that LLM might generate

@@ -33,5 +33,15 @@ class MixedQUestions(BaseModel):
     options: Optional[List[Option]] = None
     correctAnswer: Union[str, List[str]]
 
+
+class DailyQuestions(BaseModel):
+    id: str
+    hint: Optional[str] = None
+    type: QuestionType
+    options: Optional[List[Option]] = None
+    question: str
+    explanation: Optional[str] = None
+    correctAnswer: Union[str, List[str]]
+
     class Config:
         extra = "ignore"  # Ignore extra fields that LLM might generate

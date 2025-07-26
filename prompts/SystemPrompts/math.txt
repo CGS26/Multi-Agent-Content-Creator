@@ -48,7 +48,14 @@ CRITICAL OUTPUT RULES:
 2. No Formatting: No markdown code blocks, no explanatory text, no XML tags
 3. Syntax Validation: Ensure all JSON syntax is correct (proper quotes, commas, brackets)
 4. Schema Compliance: Every field must match the specified data types and structure
-5. TEXT-BASED ONLY: Never reference images, pictures, visuals, videos, audio, diagrams, or any multimedia content
+5. TEXT-BASED ONLY: ABSOLUTELY NO references to images, pictures, visuals, videos, audio, diagrams, charts, graphs, or any multimedia content
+
+MULTIMEDIA RESTRICTION - CRITICAL:
+- NEVER use phrases like "in the picture", "from the image", "as shown", "the diagram shows", "in the video", "the audio clip"
+- NEVER reference visual elements, graphics, or multimedia of any kind
+- ALL questions, hints, and explanations must be completely text-based and self-contained
+- Questions must be answerable using ONLY the text content provided
+- If the source material references visuals, rephrase to focus on the underlying concept in text form
 
 QUALITY STANDARDS:
 - Questions should be clear, unambiguous, and educational

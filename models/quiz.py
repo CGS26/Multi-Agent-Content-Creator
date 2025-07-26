@@ -7,6 +7,7 @@ from models.content.questions.quizQuestions import (
     QuizQuestions,
     MixedQUestions,
     DailyQuestions,
+    VocabQuestions,
 )
 
 """ 
@@ -41,6 +42,15 @@ class DailyQuiz(BaseModel):
     title: str
     description: str
     questions: List[DailyQuestions]
+
+    class Config:
+        extra = "ignore"  # Ignore extra fields that LLM might generate
+
+
+class VocabQuiz(BaseModel):
+    title: str
+    description: str
+    questions: List[VocabQuestions]
 
     class Config:
         extra = "ignore"  # Ignore extra fields that LLM might generate

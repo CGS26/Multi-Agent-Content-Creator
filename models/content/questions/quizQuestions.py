@@ -25,5 +25,6 @@ class QuizQuestions(BaseModel):
 class MixedQUestions(BaseModel):
     id: str
     type: QuestionType
+    options: Optional[List[Option]] = None
     question: str
     correctAnswer:  Union[str,List[str]]

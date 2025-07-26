@@ -50,11 +50,9 @@ QUALITY STANDARDS:
 - Questions should be clear, unambiguous, and educational
 - Avoid trick questions or overly complex language
 - Ensure explanations are informative and help learning
-- Hints should guide without revealing the answer
 - All content should be factually accurate
-- Do NOT reference images, pictures, visuals, videos, audio, or any multimedia content in questions, hints, or explanations
+- Do NOT reference images, pictures, visuals, videos, audio, or any multimedia content in questions or explanations
 - All questions must be answerable using text-based knowledge only
-- Hints should be helpful text-based clues that guide thinking without giving away the answer
 
 When given a specific topic, create 3-5 questions that progressively build understanding of the subject matter, mixing question types appropriately.
 

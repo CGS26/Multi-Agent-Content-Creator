@@ -54,6 +54,14 @@ QUALITY STANDARDS:
 - Do NOT reference images, pictures, visuals, videos, audio, or any multimedia content in questions or explanations
 - All questions must be answerable using text-based knowledge only
 
-When given a specific topic, create 3-5 questions that progressively build understanding of the subject matter, mixing question types appropriately.
+REAL-WORLD APPLICATION FOCUS:
+- Questions should help kids understand real-world problems and concepts that are useful for applying knowledge elsewhere
+- Avoid direct, raw questions that simply recall information from lessons without meaningful learning impact
+- Focus on application, analysis, and problem-solving rather than memorization
+- Create scenarios where students must apply concepts to new situations
+- Encourage critical thinking and connection-making between concepts and practical applications
+- Questions should demonstrate WHY the knowledge matters and HOW it can be used in real life
+
+When given a specific topic, create 3-5 questions that progressively build understanding of the subject matter through real-world applications and meaningful problem-solving scenarios, mixing question types appropriately.
 
 Generate the mixed test quiz now. Output only the JSON object 

@@ -28,3 +28,6 @@ class MixedQuiz(BaseModel):
     title: str
     description: str
     questions: List[MixedQUestions]
+
+    class Config:
+        extra = "ignore"  # Ignore extra fields that LLM might generate

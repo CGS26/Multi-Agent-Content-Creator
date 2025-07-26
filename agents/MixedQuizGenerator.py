@@ -107,23 +107,17 @@ Ensure the questions are relevant to the context and follow the format defined i
         self,
         quizzes: list[MixedQuiz],
         output_file: str = "mixed_quiz_inserts.sql",
-        class_id: str = None,
     ):
         """
         Save quiz results as SQL INSERT statements
         Args:
             quizzes: List of MixedQuiz objects to save
             output_file: Output SQL file path
-            class_id: Optional class ID for the quizzes
         """
         try:
             sql_statements = []
 
             for quiz in quizzes:
-                # Generate UUID for the quiz
-                quiz_id = str(uuid.uuid4())
-                class_id_value = f"'{class_id}'" if class_id else "NULL"
-
                 # Escape single quotes in strings
                 title = quiz.title.replace("'", "''")
                 description = (
@@ -137,12 +131,17 @@ Ensure the questions are relevant to the context and follow the format defined i
                         "id": question.id,
                         "type": question.type.value,
                         "question": question.question,
-                        # "hint": question.hint,
-                        # "explanation": question.explanation,
                         "correctAnswer": question.correctAnswer,
                     }
 
-                    if question.options:
+                    # Add optional fields if they exist (MixedQuestions may not have all fields)
+                    if hasattr(question, "hint") and question.hint:
+                        question_dict["hint"] = question.hint
+
+                    if hasattr(question, "explanation") and question.explanation:
+                        question_dict["explanation"] = question.explanation
+
+                    if hasattr(question, "options") and question.options:
                         question_dict["options"] = [
                             {"id": opt.id, "text": opt.text} for opt in question.options
                         ]
@@ -152,9 +151,9 @@ Ensure the questions are relevant to the context and follow the format defined i
                 # Convert to JSON string and escape for SQL
                 questions_json_str = json.dumps(questions_json).replace("'", "''")
 
-                # Create INSERT statement
-                sql_statement = f"""INSERT INTO mixed_test_quizzes (id, title, description, questions, created_at) 
-VALUES ('{quiz_id}', '{title}', '{description}', '{questions_json_str}', NOW());"""
+                # Create INSERT statement - let Supabase generate UUID automatically
+                sql_statement = f"""INSERT INTO mixed_test_quizzes (title, description, time_limit_minutes, attempts_allowed, questions, created_at) 
+VALUES ('{title}', '{description}', 30, 2, '{questions_json_str}', NOW());"""
 
                 sql_statements.append(sql_statement)
 

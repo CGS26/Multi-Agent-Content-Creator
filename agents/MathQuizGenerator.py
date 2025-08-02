@@ -97,7 +97,7 @@ Ensure the questions are relevant to the context and follow the format defined i
                     for section in section_texts
                 ]
             else:
-                splitter = DocumentSplitter(chunk_size=1000, chunk_overlap=100)
+                splitter = DocumentSplitter(chunk_size=100000, chunk_overlap=2000)
                 documents = splitter.split(raw_text, metadata)
 
             if max_chunks:

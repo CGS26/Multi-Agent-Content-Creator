@@ -21,7 +21,7 @@ PROMPT_PATH = Path("prompts/SystemPrompts/vocab_practice.txt")
 
 
 class VocabQuizGenerator:
-    def __init__(self, model_name="gpt-4o-mini", temperature=0):
+    def __init__(self, model_name="gpt-4.1-mini", temperature=0):
         self.llm = ChatOpenAI(
             model=model_name,
             temperature=temperature,
@@ -93,7 +93,7 @@ Ensure the questions are relevant to the context and follow the format defined i
                     for section in section_texts
                 ]
             else:
-                splitter = DocumentSplitter(chunk_size=10000, chunk_overlap=100)
+                splitter = DocumentSplitter(chunk_size=100000, chunk_overlap=2000)
                 documents = splitter.split(raw_text, metadata)
 
             if max_chunks:

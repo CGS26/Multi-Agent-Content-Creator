@@ -1,24 +1,32 @@
 from langchain.schema import SystemMessage, HumanMessage
 from langchain.prompts import SystemMessagePromptTemplate, ChatPromptTemplate
-from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 from langchain.schema import Document
 from langchain.output_parsers import PydanticOutputParser
 from langchain.output_parsers import OutputFixingParser
 import json
 import re
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 from models.quiz import VocabQuiz
 from logger.config import logger
 import uuid
 from datetime import datetime
 
+load_dotenv()
+
 PROMPT_PATH = Path("prompts/SystemPrompts/vocab_practice.txt")
 
 
 class VocabQuizGenerator:
-    def __init__(self, model_name="llama3.1:8b", temperature=0):
-        self.llm = ChatOllama(model=model_name, temperature=temperature)
+    def __init__(self, model_name="gpt-4o-mini", temperature=0):
+        self.llm = ChatOpenAI(
+            model=model_name,
+            temperature=temperature,
+            api_key=os.getenv("OPENAI_API_KEY"),
+        )
         self.system_message = SystemMessage(PROMPT_PATH.read_text())
         self.parser = PydanticOutputParser(pydantic_object=VocabQuiz)
         self.system_prompt = SystemMessagePromptTemplate.from_template(
@@ -85,7 +93,7 @@ Ensure the questions are relevant to the context and follow the format defined i
                     for section in section_texts
                 ]
             else:
-                splitter = DocumentSplitter(chunk_size=1000, chunk_overlap=100)
+                splitter = DocumentSplitter(chunk_size=10000, chunk_overlap=100)
                 documents = splitter.split(raw_text, metadata)
 
             if max_chunks:

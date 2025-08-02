@@ -15,7 +15,7 @@ try:
     # Option 1: Process PDF and generate SQL (complete pipeline)
     logger.info("Starting complete PDF to vocabulary quiz pipeline...")
     results = orchestrator.process_pdf_to_quiz(
-        pdf_path="data/lesson1.pdf",
+        pdf_path="data/2025_KS2_English_GPS_Paper1_questions.pdf", 
         quiz_type="vocabulary-practice",
         max_chunks=2,  # Process first 2 chunks/sections for testing
     )

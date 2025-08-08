@@ -130,8 +130,8 @@ Ensure the questions are relevant to the context and follow the format defined i
             sql_statements = []
 
             for quiz in quizzes:
-                class_id_value = f"'{class_id}'" if class_id else "NULL"
-                subject_id_value = f"'{subject_id}'" if subject_id else "NULL"
+                class_id_value = f"{class_id}" if class_id else "NULL"
+                subject_id_value = f"{subject_id}" if subject_id else "NULL"
 
                 # Escape single quotes in strings
                 title = quiz.title.replace("'", "''")
@@ -162,8 +162,8 @@ Ensure the questions are relevant to the context and follow the format defined i
                 questions_json_str = json.dumps(questions_json).replace("'", "''")
 
                 # Create INSERT statement - let Supabase generate UUID automatically
-                sql_statement = f"""INSERT INTO daily_practice_quizzes (title, description, questions, created_at) 
-VALUES ('{title}', '{description}', '{questions_json_str}', NOW());"""
+                sql_statement = f"""INSERT INTO daily_practice_quizzes (title, description, questions, class_id, subject_id, created_at) 
+VALUES ('{title}', '{description}', '{questions_json_str}', '{class_id_value}', '{subject_id_value}', NOW());"""
 
                 sql_statements.append(sql_statement)
 

@@ -1,46 +1,3 @@
-# from agents.VocabQuizGenerator import VocabQuizGenerator
-# from logger.config import logger
-# from dotenv import load_dotenv
-# import os
-
-# load_dotenv()
-# logger.info(
-#     f"Starting vocabulary quiz generation system with ENV: {os.getenv('ENV', 'dev')}"
-# )
-
-# try:
-#     # Initialize the vocabulary quiz generator
-#     orchestrator = VocabQuizGenerator()
-
-#     # Option 1: Process PDF and generate SQL (complete pipeline)
-#     logger.info("Starting complete PDF to vocabulary quiz pipeline...")
-#     results = orchestrator.process_pdf_to_quiz(
-#         pdf_path="data/2025_KS2_English_GPS_Paper1_questions.pdf", 
-#         quiz_type="vocabulary-practice",
-#     )
-#     print(results)
-
-#     # Save results to SQL file
-#     if results:
-#         sql_file = orchestrator.save_quizzes_to_sql(
-#             quizzes=results,
-#             output_file="output/generated_vocab_quizzes.sql",
-#             class_id=None,  # Optional: can be set if you have a specific class
-#         )
-#         if sql_file:
-#             logger.info(f"Vocabulary quizzes saved to SQL file: {sql_file}")
-#         else:
-#             logger.error("Failed to save vocabulary quizzes to SQL file")
-
-# except Exception as e:
-#     logger.exception(f"Error in vocabulary quiz generation system: {e}")
-#     raise
-
-
-
-
-
-
 from agents.VocabQuizGenerator import VocabQuizGenerator
 from logger.config import logger
 from dotenv import load_dotenv
@@ -51,7 +8,7 @@ logger.info(f"Starting vocabulary quiz generation system with ENV: {os.getenv('E
 
 # Config
 DATA_ROOT = "maindata/vocab"
-OUTPUT_ROOT = "output"
+OUTPUT_ROOT = "out/vocab"
 QUIZ_TYPE = "vocabulary-practice"
 
 try:

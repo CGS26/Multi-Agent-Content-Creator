@@ -26,8 +26,7 @@ try:
         sql_file = orchestrator.save_quizzes_to_sql(
             quizzes=results,
             output_file="output/generated_daily_quizzes.sql",
-            class_id=None,  # Optional: can be set if you have a specific class
-            subject_id=None,  # Optional: can be set if you have a specific subject
+            subject_id=subject_id,  # Optional: can be set if you have a specific subject
         )
         if sql_file:
             logger.info(f"Daily quizzes saved to SQL file: {sql_file}")

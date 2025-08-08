@@ -119,7 +119,7 @@ try:
     orchestrator = MathQuizGenerator()  # or MultiAgentOrchestrator()
 
     # Set the base input and output directories
-    base_data_dir = "data"
+    base_data_dir = "data/math"
     output_dir = "out"
     os.makedirs(output_dir, exist_ok=True)
 

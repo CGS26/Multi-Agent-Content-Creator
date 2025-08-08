@@ -50,7 +50,7 @@ load_dotenv()
 logger.info(f"Starting vocabulary quiz generation system with ENV: {os.getenv('ENV', 'dev')}")
 
 # Config
-DATA_ROOT = "data"
+DATA_ROOT = "data/vocab"
 OUTPUT_ROOT = "output"
 QUIZ_TYPE = "vocabulary-practice"
 

@@ -120,7 +120,7 @@ try:
 
     # Set the base input and output directories
     base_data_dir = "maindata/math"
-    output_dir = "out"
+    output_dir = "out/math"
     os.makedirs(output_dir, exist_ok=True)
 
     # Loop through each class folder in the data directory

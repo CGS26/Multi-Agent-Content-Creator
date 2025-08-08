@@ -108,7 +108,7 @@ Ensure the questions are relevant to the context and follow the format defined i
             for i, doc in enumerate(documents):
                 logger.info(f"Generating quiz for chunk/section {i+1}/{len(documents)}")
                 quiz = self.generate(quiz_type, doc)
-                quizzes.append(self.new_parser.parse(quiz.content))
+                quizzes.append(self.parser.parse(quiz.content))
 
             return quizzes
         except Exception as e:
@@ -166,8 +166,8 @@ Ensure the questions are relevant to the context and follow the format defined i
                 questions_json_str = json.dumps(questions_json).replace("'", "''")
 
                 # Create INSERT statement
-                sql_statement = f"""INSERT INTO math_practice_quizzes (id, title, description, questions, created_at) 
-VALUES ('{quiz_id}', '{title}', '{description}', '{questions_json_str}', NOW());"""
+                sql_statement = f"""INSERT INTO math_practice_quizzes (title, description, questions, class_id, created_at) 
+VALUES ( '{title}', '{description}', '{questions_json_str}', '{class_id}', NOW());"""
 
                 sql_statements.append(sql_statement)
 
